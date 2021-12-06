@@ -4,6 +4,7 @@ import LeftSideBar from './LeftSideBar'
 import Read from './ReadDB'
 import InputDB from './InputDB'
 import RightSideBar from './RightSideBar'
+import { Connection } from './Connection'
 
 function MainContainer() {
     return (
@@ -13,6 +14,7 @@ function MainContainer() {
             <LeftSideBar/>
             <InputDB />
             <RightSideBar/>
+            <Connection/>
             
             
             </div>

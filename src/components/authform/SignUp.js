@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 import { useState } from "react"
-
+// import {handleSignup} from "./SignUp"
 
 function SignUp() {
     
@@ -19,8 +19,8 @@ function SignUp() {
      
 
     return (
-        <div>
-            <form>
+        <div className="border">
+            <form >
             <input type="email" placeholder="email" onChange={getEmail}/>
             <input type="password" placeholder="password" onChange={getPassword} />
             <button type="submit"></button>

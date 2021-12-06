@@ -1,5 +1,6 @@
 import React from 'react'
-
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
 //mui
 
@@ -63,16 +64,16 @@ const Login = (props) => {
       
           
 
-           <div  className="text-center w-full mt-1">
+           <div  className="text-center w-full mt-1 ">
                {hasAccount ? (    // on click switch on sign in and sign up
-                   <>
-                   <button onClick={handleLogin} className=" bg-gray-400">Sign In</button>
-                   <button>Don't have an account ? <span onClick={() => setHasAccount(!hasAccount)} className="border bg-gray-400">Sign Up</span></button>
+                   <> 
+                   <Button variant="outlined" onClick={handleSignup}>Sign Up</Button>
+                   <p className="p-2">Have an account ?<Button onClick={() => setHasAccount(!hasAccount)} variant="outlined"> Sign in </Button></p> 
                    </>
                  ) : ( 
                    <>
-                <button onClick={handleSignup} className="border bg-gray-400">Sign Up</button>
-                <button>Have an account ? <span onClick={() => setHasAccount(!hasAccount)}>Sign In</span></button>
+                 <Button variant="outlined" onClick={handleLogin}>Sign In</Button>
+                <p>Don't have an account ? <Button variant="outlined" onClick={() => setHasAccount(!hasAccount)}>Sign Up</Button></p>
                   </>
                )}
            </div>
