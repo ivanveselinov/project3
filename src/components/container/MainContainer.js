@@ -14,9 +14,9 @@ function MainContainer() {
             
             <Router>
                 <nav>
-                    <div className="justify-between flex p-3 text-xl">
-                      <a path="https:/google.com">Home</a>
-                      <a href="https:/google.com">Profile</a>
+                    <div className="justify-between flex p-3 text-xl ">
+                      <a href="/">Home</a>
+                      <a href="/profile">Profile</a>
                     </div>
                 </nav>
             <Switch>  

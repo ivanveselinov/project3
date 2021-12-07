@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { Profiler, useEffect, useState } from 'react'
 import { db } from '../../firebase/Firebase';
 import ReadDB from '../container/ReadDB'
+
 export const Connection = () => {
 
     const [lection, setLection] = useState([]);
+
                          //Delete 
     const handleDelete = (lectionId) => {  
         const newLection = [...lection];
@@ -34,7 +36,7 @@ export const Connection = () => {
      
 
     return (
-        
+
         <div>
                {/* Lecture read from database! */}
                {lection.map((post) => (
@@ -45,10 +47,10 @@ export const Connection = () => {
                description={post.data.description}
                timestamp={post.data.timestamp}
                user={post.data.user}
+               postImage={post.data.postImage}
                handleDelete={handleDelete}
                 />
-            
-
+             
                ))}
 
         </div>
