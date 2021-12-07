@@ -1,6 +1,6 @@
 export const initialState = {
     appUser: {},
-    color: "blue",
+    selectedCategory: "",
 };
 
 export const reducer = ( state, action ) => {
@@ -12,13 +12,21 @@ export const reducer = ( state, action ) => {
                 appUser: action.payload,
             };
 
-            case "color":
-                return {
-                  ...state,
-                  color: action.payload,
-                };
-        
+        case "SELECTED_CATEGORY":
+            let newFilteredProducts = [];
+            if (action.payload !== ""){
+                //filter the products
+            newFilteredProducts = state.products.filter(
+                (product) => product.category === action.payload
+             );
+            }
 
+            return {
+                ...state,
+                selectedCategory: action.payload,
+                filteredProducts: newFilteredProducts
+            };
+        
 
             default:
                 return;

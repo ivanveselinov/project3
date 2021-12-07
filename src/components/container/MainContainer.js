@@ -1,11 +1,12 @@
 import React from 'react'
 import Header from '../header/Header'
-import LeftSideBar from './LeftSideBar'
-import Read from './ReadDB'
+import RightSideBar from '../rightSideBar/RightSideBar'
 import InputDB from './InputDB'
-import RightSideBar from './RightSideBar'
+import LeftSideBar from '../leftSideBar/LeftSideBar'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Profile from '../profile/Profile'
+
+
 
 function MainContainer() {
     return (

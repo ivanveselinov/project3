@@ -7,11 +7,17 @@ import firebase from 'firebase'
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import { Connection } from './Connection'
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import ListSubheader from '@mui/material/ListSubheader';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 function Input() {
     const [{appUser}, dispatch] = useContextProvider();
     const titleRef = useRef(null); // defining refs for input
     const descriptionRef = useRef(null); // defining refs for input
+    const [category, setCategory] = useState("default category"); // category 
     const fileRef = useRef(null); // defining refs for input
     const [postImage, setPostImage] = useState(); //state for storing the image before uploading to db
     const [loading, setLoading] = useState(false); //state for preventing user to post same lection couple of times
@@ -46,6 +52,7 @@ function Input() {
             userid: appUser.uid,
             title: titleRef.current.value,
             description: descriptionRef.current.value,
+            category: category, 
             timestamp: firebase.firestore.FieldValue.serverTimestamp(), 
         })
         .then((doc) => {
@@ -84,13 +91,13 @@ function Input() {
             
             titleRef.current.value = '';
             descriptionRef.current.value = '';
+            setCategory("defaultCategory");
             setLoading(false);
      
     }
 
     return (
         <div className="w-1/2 border ">
-
            <div className="w-3/4 border mt-10 m-auto">
            <form onSubmit={submitHandler}> 
                <div className="p-2 text-xl">
@@ -125,7 +132,32 @@ function Input() {
           {/* Photo button */}
            <input type="file"  ref={fileRef} onChange={addImageToPost} />
                </div>
-               </div>
+
+                                {/* CATEGORY */}
+                                <div>
+     
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel htmlFor="grouped-select">Category</InputLabel>
+        <Select
+         defaultValue="" 
+         value={category}
+         id="grouped-select" 
+         label="Category"
+         onChange={(e) => setCategory(e.target.value)}
+         >
+          <MenuItem value="defaultCategory" selected>
+            <em>Category</em>
+          </MenuItem>
+          {/* <ListSubheader>Category 1</ListSubheader> */}
+          <MenuItem value="Math">Math</MenuItem>
+          <MenuItem value="English">English</MenuItem>
+          {/* <ListSubheader>Category 2</ListSubheader> */}
+          <MenuItem value="History">History</MenuItem>
+          <MenuItem value="Geography">Geography</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+      </div>
                <Button variant="contained" type="submit"endIcon={<SendIcon />}>Send</Button>
            
            </form>

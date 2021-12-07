@@ -45,6 +45,7 @@ export const Connection = () => {
                lecture={post}
                title={post.data.title}
                description={post.data.description}
+               category={post.data.category}
                timestamp={post.data.timestamp}
                user={post.data.user}
                postImage={post.data.postImage}
