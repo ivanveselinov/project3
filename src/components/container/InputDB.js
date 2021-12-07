@@ -6,6 +6,7 @@ import firebase from 'firebase'
 //mui
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
+import { Connection } from './Connection'
 
 function Input() {
     const [{appUser}, dispatch] = useContextProvider();
@@ -14,6 +15,7 @@ function Input() {
     // const [postImage, setPostImage] = useState(); //state for storing the image before uploading to db
     const [loading, setLoading] = useState(false); //state for preventing user to post same product couple of times
     
+
     const submitHandler = (e) => {
         e.preventDefault();
         if (loading === true ) return;  //if someone click more times at once //if function is running do not run it again
@@ -63,7 +65,8 @@ function Input() {
            
            </form>
            </div>
-           <ReadDB />
+           <Connection/> 
+            
         </div>
     )
 }

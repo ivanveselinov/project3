@@ -4,21 +4,40 @@ import LeftSideBar from './LeftSideBar'
 import Read from './ReadDB'
 import InputDB from './InputDB'
 import RightSideBar from './RightSideBar'
-import { Connection } from './Connection'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Profile from '../profile/Profile'
 
 function MainContainer() {
     return (
         <div >
             <Header />
-            <div className="justify-between flex border h-screen ">
-            <LeftSideBar/>
-            <InputDB />
-            <RightSideBar/>
-            <Connection/>
             
+            <Router>
+                <nav>
+                    <div className="justify-between flex p-3 text-xl">
+                      <a path="https:/google.com">Home</a>
+                      <a href="https:/google.com">Profile</a>
+                    </div>
+                </nav>
+            <Switch>  
+                    
+                    <Route exact path="/profile">
+                        <Profile/>
+                    </Route>
+                    
+                    <Route expact path="/">
+                    <div className="justify-between flex border ">
+                        <LeftSideBar/>
+                          <InputDB />
+                          <RightSideBar/>
+                        </div>
+                    </Route>
+
+                </Switch>
+               
+            </Router>
             
-            </div>
-        
+      
         </div>
     )
 }
