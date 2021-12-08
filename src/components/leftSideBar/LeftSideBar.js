@@ -8,7 +8,7 @@ import { useContextProvider } from '../../context/StateProvider';
 
 export default function LeftSideBar() {
     return (
-        <div className="w-1/4 border">
+        <div className="w-1/4 border p-2">
             {/* checkbox list */}
            <FormGroup>
                <Category control={<Checkbox defaultChecked />} label="All" />
