@@ -85,9 +85,9 @@ function Main() {
 
     return (
 
-    <div className="w-3/4 text-center m-auto mt-60 text-2xl border" >
+    <div className="w-3/4 text-center m-auto mt-52 text-2xl " >
       <p className="mb-3">Welcome to MLS Login or Sign up </p>
-      <div className="w-1/2 border m-auto mb-10 bg-blue-100 p-4">
+      <div className="w-1/2 border m-auto mb-10 rounded-xl bg-blue-200 p-4">
       {user ? (
           <Hero handleLogout={handleLogout}/>
       ) :  ( 

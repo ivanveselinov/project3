@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 
 //mui
 
@@ -47,7 +46,7 @@ const Login = (props) => {
             inputProps={ariaLabel} 
 
             />
-            <p>{emailError}</p>
+            <p className="bg-red-500 mt-2">{emailError}</p>
            
            
             <label className="text-2xl p-2 ">Password: </label>
@@ -60,7 +59,7 @@ const Login = (props) => {
             onChange={(e) => setPassword(e.target.value)} 
             inputProps={ariaLabel} 
             />
-            <p>{passwordError}</p>  
+            <p className="bg-red bg-red-500 mt-2">{passwordError}</p>  
       
           
 

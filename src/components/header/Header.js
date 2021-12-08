@@ -18,10 +18,15 @@ function Header() {
           };
 
     return (
-        <div className="w-full h-20 border bg-blue-100">
-            <div className="flex overflow-hidden text-right" onClick={signOutThing}>
-                <p className="bg-blue-200">Welcome Back: {appUser?.email}
-                 </p>
+        <div className="w-full fixed h-32 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 flex">
+            <div className="w-3/4 ">
+            <p>Welcome Back: {appUser?.email}     </p>
+                </div> 
+         
+            <div className="flex overflow-hidden p-2 ml-10 " onClick={signOutThing}>
+            <p>Logout{appUser?.email}   </p>   
+              
+            
             </div>
         </div>
     )

@@ -54,28 +54,27 @@ function Profile({lecture}) {
 
     return (
         <div className="w-full">
-            <h1>Welcome to profile: {appUser?.email}</h1>
-            {lection.map(({userid, description , title, timestamp, user, id}) =>
-            <div className="w-3/4 border-2 mt-10 m-auto" key={lection.id}>
-                <div className="w-3/4 border mt-10 m-auto">
-                
-                <label>Created at: </label>
-                 {timestamp?.toDate().toUTCString()}
-                </div>
+            {lection.map(({userid, description , title, timestamp, user, id, postImage}) =>
+           <div className="m-auto border w-1/2 mt-20 rounded-2xl p-2"> 
+<div className="border w-full ">
+<p>Teacher: {user} </p>
+<p>createAt: {timestamp?.toDate().toUTCString()}</p>
+</div>
+<div className="border w-fulll mt-2">
+   <p>Title: {title}</p>
+   <p>Description: {description}</p>
+</div>
 
-                <label>Title: </label>
-                     {title}
-                <div>
-                    <label>Description: </label>
-                    {description}
-                </div>
-                lection id {lection.id}
-
-                <div>
-               
-                 <button onClick={() => handleDelete(id)}>X</button>
-                </div>
-            </div>
+<div className="border w-full mt-2 flex justify-between ">
+    <a  href={postImage} target="_blank"> 
+    <p>Get your pdf!! </p> 
+   </a>
+   <button className="bg-blue-300 rounded-md p-1 mb-2" onClick={() => handleDelete(id)}>Remove Post</button>
+</div>
+    <div>
+  
+   </div>
+</div>
             )}
           
         </div>

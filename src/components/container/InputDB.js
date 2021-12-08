@@ -97,21 +97,28 @@ function Input() {
     }
 
     return (
-        <div className="w-1/2 border ">
-           <div className="w-3/4 border mt-10 m-auto">
+        <div className="w-1/2  mt-36 ">
+           <div className="w-3/4 border rounded-2xl p-2 mt-10 m-auto bg-white shadow-xl">
            <form onSubmit={submitHandler}> 
                <div className="p-2 text-xl">
                     <label>Teacher: {appUser?.email} </label>
                 </div>
-               <div className=" border p-2 ">
-                <div>
-                    <label>Title: </label>
-                    <input type="text" className="rounded-xl bg-gray-200 p-1" name="title" ref={titleRef}></input>
+               
+               <div className=" border p-2 w-full "> {/* Title Description */}
+                 
+                  <div className="border p-2 flex">
+                  <div className="border w-1/4"> {/* Just for labels */}
+                  <div className="border mt-3"><label >Title: </label></div>
+                  <div className="border mt-3"><label>Description: </label></div>
+               
+                
+                   </div>
+               <div className="w-3/4 border p-2">  {/* Input Fields title description */}
+                     <input type="text" className="rounded-xl bg-gray-200 p-1 w-full mb-2" name="title" ref={titleRef}></input>
+                    <input type="text" className="rounded-xl p-1 bg-gray-200 w-full" name="description" ref={descriptionRef}></input>
+                    </div>
                </div>
-               <div className="mt-2">
-                    <label>Description: </label>
-                    <input type="text" className="rounded-xl p-1 bg-gray-200" name="description" ref={descriptionRef}></input>
-               </div>
+          
                <div>
                {postImage && (
             <div
@@ -128,14 +135,15 @@ function Input() {
           )}
         </div>
 
-        <div className="flex justify-between lg:w-full pt-3 border-t mt-4 space-x-4">
+        <div className="mt-2 p-2 flex border-t">  {/* Main for Photo and Category */}
+        <div className="flex justify-between lg:w-full pt-3  mt-4 space-x-4 ">
           {/* Photo button */}
            <input type="file"  ref={fileRef} onChange={addImageToPost} />
                </div>
 
                                 {/* CATEGORY */}
-                                <div>
-     
+                             
+    <div className="w-full border">
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel htmlFor="grouped-select">Category</InputLabel>
         <Select
@@ -144,6 +152,7 @@ function Input() {
          id="grouped-select" 
          label="Category"
          onChange={(e) => setCategory(e.target.value)}
+         className="border" 
          >
           <MenuItem value="defaultCategory" selected>
             <em>Category</em>
@@ -158,8 +167,10 @@ function Input() {
       </FormControl>
     </div>
       </div>
-               <Button variant="contained" type="submit"endIcon={<SendIcon />}>Send</Button>
-           
+      </div>
+                <div className="mt-2">
+                  <Button  variant="contained" type="submit"endIcon={<SendIcon />}>Send</Button>
+                </div>
            </form>
            </div>
            <Connection/> 

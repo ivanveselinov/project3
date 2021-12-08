@@ -1,6 +1,7 @@
 export const initialState = {
     appUser: {},
     selectedCategory: "",
+    lections: [],
 };
 
 export const reducer = ( state, action ) => {
@@ -12,21 +13,26 @@ export const reducer = ( state, action ) => {
                 appUser: action.payload,
             };
 
-        case "SELECTED_CATEGORY":
-            let newFilteredProducts = [];
-            if (action.payload !== ""){
-                //filter the products
-            newFilteredProducts = state.products.filter(
-                (product) => product.category === action.payload
-             );
-            }
-
-            return {
-                ...state,
-                selectedCategory: action.payload,
-                filteredProducts: newFilteredProducts
-            };
+            case "SELECT_CATEGORY":
+                let newFilteredProducts = [];
+                console.log(state)
+                if (action.payload !== "") {
+                  //fiter the products for the selected category
+                  newFilteredProducts = state.lections.filter(
+                    (lec) => lec.category === action.payload
+                  );
+                }
+                return {
+                  ...state,
+                  selectedCategory: action.payload,
+                  filteredLections: newFilteredProducts,
+                };
         
+                case "ADD_PRODUCTS":
+                 return {
+                   ...state,
+                   lections: action.payload,
+      };
 
             default:
                 return;
