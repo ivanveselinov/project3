@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
-// import auth from 'firebase'
-// import db from 'firebase'
 import {db, auth} from '../../firebase/Firebase'
 import firebase from 'firebase'
 import SendIcon from '@mui/icons-material/Send';
-// import { useContextProvider } from '../../context/StateProvider';
 function SendMessage() {
     
     const [msg, setMsg] = useState('');
-//    const [{appUser}, dispatch] = useContextProvider();
-
+    
     async function sendMessage(e) {
         e.preventDefault();
         if( msg === "" ) return ;  //if msg is empty string do nothing!!
@@ -18,12 +14,9 @@ function SendMessage() {
         await db.collection('messages').add({
             text: 
             msg, 
-            uid,
+            uid,    
             email,
-      
-            // uid,
-            // email, 
-         
+            
             createAt: firebase.firestore.FieldValue.serverTimestamp()
         })
             setMsg("");

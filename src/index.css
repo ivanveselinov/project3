@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .h-278 {
+      min-height: 525px;
+      max-height: 525px;
+    }
+
+}

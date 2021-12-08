@@ -18,7 +18,7 @@ export default function ReadDB({title, description, timestamp, user, handleDelet
     </div>
     <div className="border w-full mt-2">
        <p>Title: {title}</p>
-       <p>Description: {description}</p>
+       <p className="break-words">Description: {description}</p>
     </div>
 
     <div className="border mt-2 flex justify-between">

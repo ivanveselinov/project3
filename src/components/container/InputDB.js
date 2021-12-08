@@ -43,7 +43,12 @@ function Input() {
         e.preventDefault();
         if (loading === true ) return;  //if someone click more times at once //if function is running do not run it again
         setLoading(true);
-
+        
+        if(   // If empty dont post
+        titleRef.current.value === "" 
+        || descriptionRef.current.value === "" 
+        || category === "defaultCategory" )
+        return;
         
 
         db.collection("lection")
@@ -97,23 +102,24 @@ function Input() {
     }
 
     return (
-        <div className="w-1/2  mt-36 ">
-           <div className="w-3/4 border rounded-2xl p-2 mt-10 m-auto bg-white shadow-xl">
+        <div className="w-1/2  bg-gray-500 h-screen overflow-y-auto scrollbar-hide"> {/* MAIN CONTAINER */}
+           <div className="w-3/4 rounded-2xl p-2 mt-10 m-auto bg-white shadow-xl">
            <form onSubmit={submitHandler}> 
                <div className="p-2 text-xl">
+                 
                     <label>Teacher: {appUser?.email} </label>
                 </div>
                
-               <div className=" border p-2 w-full "> {/* Title Description */}
+               <div className="p-2 w-full "> {/* Title Description */}
                  
-                  <div className="border p-2 flex">
-                  <div className="border w-1/4"> {/* Just for labels */}
-                  <div className="border mt-3"><label >Title: </label></div>
-                  <div className="border mt-3"><label>Description: </label></div>
+                  <div className="p-2 flex">
+                  <div className="w-1/4"> {/* Just for labels */}
+                  <div className="mt-3"><label >Title: </label></div>
+                  <div className="mt-3"><label>Description: </label></div>
                
                 
                    </div>
-               <div className="w-3/4 border p-2">  {/* Input Fields title description */}
+               <div className="w-3/4 p-2">  {/* Input Fields title description */}
                      <input type="text" className="rounded-xl bg-gray-200 p-1 w-full mb-2" name="title" ref={titleRef}></input>
                     <input type="text" className="rounded-xl p-1 bg-gray-200 w-full" name="description" ref={descriptionRef}></input>
                     </div>

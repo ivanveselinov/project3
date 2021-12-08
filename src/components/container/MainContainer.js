@@ -10,12 +10,12 @@ import Profile from '../profile/Profile'
 
 function MainContainer() {
     return (
-        <div className="bg-gray-100" >
+        <div className="bg-gray-100 " >
             <Header />
             
             <Router>
                 <nav>
-                    <div className="justify-between flex p-3 text-xl  border bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 mb-40">
+                    <div className="justify-between flex p-3 text-xl  border bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 ">
                       <a href="/">Home</a>
                       <a href="/profile">Profile</a>
                     </div>
