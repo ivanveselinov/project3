@@ -20,12 +20,12 @@ function Header() {
           };
 
     return (
-        //bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200
-        <div className="w-full h-32  flex justify-between">
+        <div className="w-full h-15 flex justify-between p-2">
                 {/* If there is no user dont display logout and welcome */}
          {appUser.uid && 
             <div className="w-3/4">
-                <p>Welcome Back: {appUser?.email}</p>
+                <p className='text-2xl'>Welcome Back</p>
+                <p className='text-2xl'>{appUser?.email}</p>
             </div> 
             }            
           {appUser.uid &&

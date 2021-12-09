@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'Home-lg': "url('components/img/Home.jpeg')",
+        'Home-lg': "url('components/img/Home3.jpg')",
         'Login-lg': "url('components/img/Login.jpeg')",
       },
     },
@@ -12,5 +12,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+  ],
 }

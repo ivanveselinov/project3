@@ -21,8 +21,8 @@ function RightSideBar() {
   }, [])
 
   return (
-    <div className="sm:w-1/2 lg:w-1/4 border rounded-xl shadow-xl p-2 h-30 overflow-scroll h-278 mt-10 m-auto ">
-      
+    <div className="sm: w-1/2 lg:w-1/4 inline-block shadow-2xl  bg-white p-2 ">
+         <div className='sm:w-1/2 lg:w-full border rounded-xl shadow-xl p-2 h-30 overflow-scroll scrollbar-hide h-278 mt-10 m-auto'>
         <ReactScrollableFeed>
        {messages.map(({id, uid, text, createAt, email}) =>
             <div key={id}>
@@ -34,7 +34,7 @@ function RightSideBar() {
               <div className="p-1 ">
               <div className="">
               <div className=''>
-              <p className='sm: flex text-xs lg:text-xl text-gray-500'>{email}</p>
+              <p className='sm: flex text-xs lg:text-xl '>{email}</p>
               <p className='sm: text-xs lg:text-xl'>{new Date(createAt?.toDate()).toLocaleString()}</p>
               </div>
               </div>
@@ -54,6 +54,7 @@ function RightSideBar() {
            )}
            </ReactScrollableFeed>
              <SendMessage />
+    </div>
     </div>
   )
 }

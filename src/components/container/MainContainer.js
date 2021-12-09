@@ -12,17 +12,18 @@ import { useContextProvider } from '../../context/StateProvider'
 function MainContainer() {
     const [{appUser,admin}, dispatch] = useContextProvider();
     return (
-        <div className=" bg-gradient-to-r from-white via-blue-100 to-green-100" >
+        // bg-gradient-to-r from-white via-blue-100 to-green-100
+        <div className="bg-gradient-to-r from-white via-blue-100 to-green-100 scrollbar-hide" >
             <Header />
             
             <Router>
                 <nav>
-                    <div className="justify-between flex p-3 text-xl  ">
-                      <a href="/">Home</a>
+                    <div className="justify-between flex p-3 border-b text-2xl border-t">
+                      <a className="hover:underline" href="/">Home</a>
             
              {/* IF USER IS NOT TEACHER OR ADMIN HIDE PROFILE!! */}
                       { appUser.uid === admin &&
-                      <a href="/profile">Profile</a>
+                      <a className="hover:underline" href="/profile">Profile</a>
                     }     
                     
                     </div>

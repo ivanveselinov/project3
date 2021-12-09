@@ -23,8 +23,7 @@ function App() {
 
   return (
 
-    <div className="min-h-screen bg-Login-lg bg-center">
-      {/* <Header/> */}
+    <div className="bg-Login-lg bg-center h-screen ">
       { user? <MainContainer /> : < Main/> }
   </div>
   );
