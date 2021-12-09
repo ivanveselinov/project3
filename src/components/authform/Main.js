@@ -83,9 +83,8 @@ function Main() {
 
 
 
-    return (
-
-    <div className="w-3/4 text-center m-auto mt-52 text-2xl " >
+    return ( 
+    <div className="w-3/4 text-center m-auto text-2xl" >
       <p className="mb-3">Welcome to MLS Login or Sign up </p>
       <div className="w-1/2 border m-auto mb-10 rounded-xl bg-blue-200 p-4">
       {user ? (
@@ -106,7 +105,6 @@ function Main() {
       )}
       </div>
     </div>
- 
     )
 }
 

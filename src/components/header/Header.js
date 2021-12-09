@@ -20,17 +20,21 @@ function Header() {
           };
 
     return (
-        <div className="w-full h-32 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 flex justify-between">
+        //bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200
+        <div className="w-full h-32  flex justify-between">
+                {/* If there is no user dont display logout and welcome */}
+         {appUser.uid && 
             <div className="w-3/4">
                 <p>Welcome Back: {appUser?.email}</p>
             </div> 
-         
+            }            
+          {appUser.uid &&
             <div className="flex p-2 " onClick={signOutThing}>
                 <a href="">
             <p className="visible">Logout<LogoutIcon/></p>   
                 </a>
-             
             </div>
+                }
         </div>
     )
 }

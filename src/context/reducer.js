@@ -2,6 +2,9 @@ export const initialState = {
     appUser: {},
     selectedCategory: "",
     lections: [],
+    admin: "gtDSj709LTbt4laOXeRE4hXBnP72",
+    teachers: "CdfLq3LYMaTLcpKXLjhxV4bLDv03",
+
 };
 
 export const reducer = ( state, action ) => {
@@ -33,6 +36,19 @@ export const reducer = ( state, action ) => {
                    ...state,
                    lections: action.payload,
       };
+
+                 case "admin": 
+                  return {
+                    ...state,
+                     admin: action.payload,
+                       };
+
+                  case "teacher": 
+                    return {
+                      ...state,
+                      teachers: action.payload,
+                       };
+
 
             default:
                 return;

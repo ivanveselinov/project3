@@ -34,7 +34,7 @@ function RightSideBar() {
               <div className="p-1 ">
               <div className="">
               <div className=''>
-              <p className='sm: flex text-xs lg:text-xl'>{email}</p>
+              <p className='sm: flex text-xs lg:text-xl text-gray-500'>{email}</p>
               <p className='sm: text-xs lg:text-xl'>{new Date(createAt?.toDate()).toLocaleString()}</p>
               </div>
               </div>

@@ -8,7 +8,7 @@ export const Connection = () => {
     const [{ lections, filteredLections, selectedCategory }, dispatch] = useContextProvider();
     const [lection, setLection] = useState([]);
     const [realtimeLectures] = useCollection(
-        db.collection("lection").orderBy("timestamp", "desc").limit(100) // desc going down last one on top db is connected
+        db.collection("lection").orderBy("timestamp", "desc").limit(150) // desc going down last one on top db is connected
         );
                          //Delete 
     const handleDelete = (lectionId) => {  

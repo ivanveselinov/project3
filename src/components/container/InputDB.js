@@ -14,7 +14,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 function Input() {
-    const [{appUser}, dispatch] = useContextProvider();
+    const [{appUser, admin}, dispatch] = useContextProvider();
     const titleRef = useRef(null); // defining refs for input
     const descriptionRef = useRef(null); // defining refs for input
     const [category, setCategory] = useState("default category"); // category 
@@ -102,12 +102,16 @@ function Input() {
     }
 
     return (
-        <div className="sm:w-1/2  lg:w-1/2  bg-gray-500 h-screen overflow-y-auto scrollbar-hide"> {/* MAIN CONTAINER */}
+      
+        <div className="sm:w-1/2  lg:w-1/2  h-screen overflow-y-auto scrollbar-hide"> {/* MAIN CONTAINER */}
+            { appUser.uid === admin  &&
            <div className="w-3/4 rounded-2xl p-2 mt-10 m-auto bg-white shadow-xl">
            <form onSubmit={submitHandler}> 
                <div className="sm: text-xs  lg:text-xl p-2">
-                 
-                    <label>Teacher: {appUser?.email} </label>
+               {/* { appUser.uid === "gtDSj709LTbt4laOXeRE4hXBnP72" 
+                     ? <label>Teacher: {appUser?.email} </label>
+                     : <label>Student: {appUser?.email} </label>
+                        } */}
                 </div>
                
                <div className="p-2 w-full "> {/* Title Description */}
@@ -144,7 +148,7 @@ function Input() {
         <div className="sm: text-xs  lg:text-xl mt-2 p-2 flex border-t justify-between">  {/* Main for Photo and Category */}
         <div className="border w-1/4 pt-3 mt-4">
           {/* Photo button */}
-           <input type="file"  ref={fileRef} onChange={addImageToPost} />
+           <input type="file" ref={fileRef} onChange={addImageToPost} />
                </div>
 
                                 {/* CATEGORY */}
@@ -158,7 +162,6 @@ function Input() {
          id="grouped-select" 
          label="Category"
          onChange={(e) => setCategory(e.target.value)}
-         className="border" 
          >
           <MenuItem value="defaultCategory" selected>
             <em>Category</em>
@@ -174,15 +177,18 @@ function Input() {
     </div>
       </div>
       </div>
-                <div className="mt-2">
+                <div className="mt-2">  {/* IF ADMIN IS NOT LOGGED IN YOU CANT POST ITEMS!! */}
                   <Button  variant="contained" type="submit"endIcon={<SendIcon />}>Send</Button>
                 </div>
            </form>
            </div>
+                }
            <Connection/> 
+         
             
         </div>
     )
 }
+        
 
 export default Input
