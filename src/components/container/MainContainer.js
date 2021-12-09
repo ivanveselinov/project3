@@ -13,20 +13,17 @@ function MainContainer() {
     const [{appUser,admin}, dispatch] = useContextProvider();
     return (
         // bg-gradient-to-r from-white via-blue-100 to-green-100
-        <div className="bg-gradient-to-r from-white via-blue-100 to-green-100 scrollbar-hide" >
-            <Header />
+        <div className="bg-gradient-to-r from-white via-blue-100 to-green-100 " >
+           
             
             <Router>
                 <nav>
-                    <div className="justify-between flex p-3 border-b text-2xl border-t">
-                      <a className="hover:underline" href="/">Home</a>
-            
+                <Header />
+                      <a className="hover:underline text-2xl p-2 text-red-500" href="/">Home</a>
              {/* IF USER IS NOT TEACHER OR ADMIN HIDE PROFILE!! */}
                       { appUser.uid === admin &&
-                      <a className="hover:underline" href="/profile">Profile</a>
+                      <a className="hover:underline text-2xl float-right mr-3 text-red-500" href="/profile">Profile</a>
                     }     
-                    
-                    </div>
                 </nav>
             <Switch>  
      

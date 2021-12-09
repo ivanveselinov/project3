@@ -102,8 +102,8 @@ function Input() {
     }
 
     return (
-      
-        <div className="sm:w-1/2  lg:w-1/2  h-screen overflow-y-auto scrolbar-hide"> {/* MAIN CONTAINER */}
+      // "sm:w-1/2  lg:w-1/2  h-screen overflow-y-auto scrolbar-hide""
+        <div className="sm:w-1/2  lg:w-1/2  h-screen overflow-y-auto scrollbar-hide"> {/* MAIN CONTAINER */}
             { appUser.uid === admin  &&
            <div className="w-3/4 rounded-2xl p-2 mt-10 m-auto bg-white shadow-xl">
            <form onSubmit={submitHandler}> 

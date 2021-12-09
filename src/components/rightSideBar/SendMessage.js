@@ -30,7 +30,7 @@ function SendMessage() {
     return (
         <div>
            <form onSubmit={sendMessage} > 
-                <div className="flex space-x-2 justify-between" >
+                <div className="flex space-x-2 justify-between " >
                 
                 <input 
                  className="form-textarea mt-1 block w-full border  rounded-full p-2"
