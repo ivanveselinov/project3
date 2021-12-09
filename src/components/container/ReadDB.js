@@ -6,7 +6,7 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 
 // connect db from container and read from database!!! simple code
-export default function ReadDB({title, description, timestamp, user, handleDelete, lecture, postImage, category}) {
+export default function ReadDB({title, description, timestamp,createAt  , user, handleDelete, lecture, postImage, category}) {
     
     const [{appUser, teachers,admin }, dispatch] = useContextProvider();
 
@@ -19,8 +19,9 @@ export default function ReadDB({title, description, timestamp, user, handleDelet
          <p className="text-red-500 break-words">Teacher: {user} </p>
         
 
-        
-    <p>{timestamp?.toDate().toUTCString()}</p>
+         {/* <p>{timestamp?.toDate().toUTCString()}</p> */}
+    
+    <p>{new Date(timestamp?.toDate()).toLocaleString()}</p>
     </div>
     <div className="border-t w-full mt-2 ">
        <p className='sm:text-xl lg:text-2xl text-center p-2  font-bold'>{title}</p>

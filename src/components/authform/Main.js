@@ -85,7 +85,7 @@ function Main() {
 
     return ( 
     <div className="w-fulltext-center m-auto text-2xl p-40 " >
-      <p className="mb-3 text-blue-500 text-3xl text-center">Welcome to MLS Login or Sign up </p>
+      <p className="sm:text-2xl sm:font-bold mb-3 text-pink-600 font-bold lg:text-6xl underline text-center">Welcome to MLS </p>
       <div className="sm:w-full lg:w-1/2 border text-center m-auto mb-10 rounded-xl bg-blue-200 p-4">
       {user ? (
           <Hero handleLogout={handleLogout}/>
