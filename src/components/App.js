@@ -1,5 +1,3 @@
-
-
 import Main from "./authform/Main";
 import MainContainer from "./container/MainContainer";
 import Header from "./header/Header";

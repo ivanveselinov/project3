@@ -3,10 +3,11 @@ import {useState, useEffect} from 'react';
 import { db } from '../../firebase/Firebase';
 import Avatar from '@mui/material/Avatar';
 import SendMessage from './SendMessage';
-
+import ReactScrollableFeed from 'react-scrollable-feed'
 
 function RightSideBar() {
   const [messages, setMessages] = useState([]);
+
 
   useEffect(() => {  // .limit(150) i put unlimited messages
     db.collection('messages').orderBy('createAt').onSnapshot(snapshot =>{
@@ -20,17 +21,22 @@ function RightSideBar() {
   }, [])
 
   return (
-    <div className="w-1/4 border p-2 h-30 overflow-scroll h-278 mt-10 ">
+    <div className="sm:w-1/2 lg:w-1/4 border rounded-xl shadow-xl p-2 h-30 overflow-scroll h-278 mt-10 m-auto ">
+      
+        <ReactScrollableFeed>
        {messages.map(({id, uid, text, createAt, email}) =>
             <div key={id}>
             
-              <div className="flex items-center space-x-2 border-t ">
-              <Avatar img alt=""  />
-              {/* <p>{uid}</p> */}
+              <div className=" flex items-center space-x-2 border-t ">
+              <div className='' >
+              <Avatar img alt=""/>
+              </div>
               <div className="p-1 ">
               <div className="">
-              <p>{email}</p>
-              <p>{new Date(createAt?.toDate()).toLocaleString()}</p>
+              <div className=''>
+              <p className='sm: flex text-xs lg:text-xl'>{email}</p>
+              <p className='sm: text-xs lg:text-xl'>{new Date(createAt?.toDate()).toLocaleString()}</p>
+              </div>
               </div>
               </div>
              
@@ -40,14 +46,14 @@ function RightSideBar() {
 
               </div>
               <div >
-              <p className="bg-green-500 p-1 rounded-tr-2xl rounded-bl-2xl mt-2 mb-2 text-xl focus:outline-none flex-grow text-left shadow-md break-words ">{text} </p>
+              <p className="sm: text-xs lg:text-xl bg-green-500 p-1 rounded-tr-2xl rounded-bl-2xl mt-2 mb-2  focus:outline-none flex-grow text-left shadow-md break-words ">{text} </p>
               </div> 
               
        
              </div>
            )}
+           </ReactScrollableFeed>
              <SendMessage />
-
     </div>
   )
 }
