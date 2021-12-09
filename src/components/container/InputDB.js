@@ -177,9 +177,9 @@ function Input() {
           <MenuItem value="Math">Math</MenuItem>
           <MenuItem value="History">History</MenuItem>
           <MenuItem value="English">English</MenuItem>
-          <MenuItem value="History">Science</MenuItem>
+          <MenuItem value="Science">Science</MenuItem>
           <MenuItem value="Geography">Geography</MenuItem>
-          <MenuItem value="History">Programming</MenuItem>
+          <MenuItem value="Programming">Programming</MenuItem>
         </Select>
       </FormControl>
     </div>
