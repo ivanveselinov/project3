@@ -12,9 +12,11 @@ export default function LeftSideBar() {
             {/* checkbox list */}
            <FormGroup>
                <Category control={<Checkbox defaultChecked />} label="Math" />
-               <Category control={<Checkbox defaultChecked />} label="English" />
                <Category control={<Checkbox defaultChecked />} label="History" />
+               <Category control={<Checkbox defaultChecked />} label="English" />
+               <Category control={<Checkbox defaultChecked />} label="Science" />
                <Category control={<Checkbox defaultChecked />} label="Geography" />
+               <Category control={<Checkbox defaultChecked />} label="Programming" />
                {/* <FormControlLabel disabled control={<Checkbox />} label="Disabled" /> */}
            </FormGroup>
         </div>
