@@ -175,10 +175,11 @@ function Input() {
           </MenuItem>
           {/* <ListSubheader>Category 1</ListSubheader> */}
           <MenuItem value="Math">Math</MenuItem>
-          <MenuItem value="English">English</MenuItem>
-          {/* <ListSubheader>Category 2</ListSubheader> */}
           <MenuItem value="History">History</MenuItem>
+          <MenuItem value="English">English</MenuItem>
+          <MenuItem value="History">Science</MenuItem>
           <MenuItem value="Geography">Geography</MenuItem>
+          <MenuItem value="History">Programming</MenuItem>
         </Select>
       </FormControl>
     </div>
