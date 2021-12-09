@@ -21,7 +21,7 @@ function RightSideBar() {
   }, [])
 
   return (
-    <div className="sm: w-1/2 lg:w-1/4 inline-block shadow-2xl  bg-white p-2 ">
+    <div className="sm: w-1/2 lg:w-1/4 inline-block shadow-2xl  bg-white p-2  ">
          <div className='sm:w-1/2 lg:w-full border rounded-xl shadow-xl p-2 h-30 overflow-scroll scrollbar-hide h-278 bg-gray-100 mt-10 m-auto'>
         <ReactScrollableFeed>
        {messages.map(({id, uid, text, createAt, email}) =>
@@ -39,16 +39,12 @@ function RightSideBar() {
               </div>
               </div>
               </div>
-             
-                {/* <p>{fromnow(new Date(createAt?.toDate()).toLocaleString(),
-               { max: 1, }
-              )}</p> */}
 
               </div>
               <div >
-              <p className="sm: text-xs lg:text-xl bg-green-500 p-1 rounded-tr-2xl rounded-bl-2xl mt-2 mb-2  focus:outline-none flex-grow text-left shadow-md break-words ">{text} </p>
+              <p className="sm: text-xs lg:text-xl  bg-blue-200 p-1 rounded-tr-2xl rounded-bl-2xl mt-2 mb-2  focus:outline-none flex-grow text-left shadow-md break-words ">{text} </p>
               </div> 
-              
+              {/* bg-green-500 */}
        
              </div>
            )}

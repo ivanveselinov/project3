@@ -9,7 +9,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 function Header() {
     const [{ appUser } , dispatch] = useContextProvider(); //  Import all user information from database from reducer.js
-        console.log('i am appuser', appUser)  
+        // console.log('i am appuser', appUser)  
 
         const signOutThing = () => {
             firebase.auth().signOut();
@@ -24,14 +24,14 @@ function Header() {
                 {/* If there is no user dont display logout and welcome */}
          {appUser.uid && 
             <div className="w-3/4">
-                <p className='text-2xl'>Welcome Back</p>
-                <p className='text-2xl'>{appUser?.email}</p>
+                <p className='sm:text-l lg:text-2xl'>Welcome Back</p>
+                <p className='sm:text-l lg:text-2xl'>{appUser?.email}</p>
             </div> 
             }            
           {appUser.uid &&
             <div className="flex p-2 " onClick={signOutThing}>
                 <a href="">
-            <p className="visible">Logout<LogoutIcon/></p>   
+            <p className=" border sm:text-l lg:text-2xl">Logout<LogoutIcon sx ={{ fontSize: 30 }}/></p>   
                 </a>
             </div>
                 }

@@ -12,9 +12,11 @@ import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
+
 
 function Input() {
-    const [{appUser, admin}, dispatch] = useContextProvider();
+    const [{appUser, admin, teachers}, dispatch] = useContextProvider();
     const titleRef = useRef(null); // defining refs for input
     const descriptionRef = useRef(null); // defining refs for input
     const [category, setCategory] = useState("default category"); // category 
@@ -104,14 +106,10 @@ function Input() {
     return (
       // "sm:w-1/2  lg:w-1/2  h-screen overflow-y-auto scrolbar-hide""
         <div className="sm:w-1/2  lg:w-1/2  h-screen overflow-y-auto scrollbar-hide"> {/* MAIN CONTAINER */}
-            { appUser.uid === admin  &&
-           <div className="w-3/4 rounded-2xl p-2 mt-10 m-auto bg-white shadow-xl">
+            { (appUser.uid === admin || appUser.uid === teachers )  &&
+           <div className="sm: w-full sm: text-xs border lg:text-xl lg:w-3/4 rounded-2xl p-2 mt-10 m-auto bg-white shadow-xl">
            <form onSubmit={submitHandler}> 
                <div className="sm: text-xs  lg:text-xl p-2">
-               {/* { appUser.uid === "gtDSj709LTbt4laOXeRE4hXBnP72" 
-                     ? <label>Teacher: {appUser?.email} </label>
-                     : <label>Student: {appUser?.email} </label>
-                        } */}
                 </div>
                
                <div className="p-2 w-full "> {/* Title Description */}
@@ -145,16 +143,25 @@ function Input() {
           )}
         </div>
 
-        <div className="sm: text-xs  lg:text-xl mt-2 p-2 flex border-t justify-between">  {/* Main for Photo and Category */}
-        <div className="border w-1/4 pt-3 mt-4">
+        <div className="sm:w-full text-xs lg:text-xl mt-2 p-4 flex border-t justify-between">  {/* Main for Photo and Category */}
           {/* Photo button */}
-           <input type="file" ref={fileRef} onChange={addImageToPost} />
-               </div>
+               <div
+            className="inputBtn rounded-bl-lg flex justify-center  mt-3 w-1/5 "
+            onClick={() => fileRef.current.click()}
+          >  <p className="flex space-x-2">
+          <UploadFileIcon  sx ={{ fontSize: 40 }} />{" "}
+          <p className=" hidden sm:inline-flex text-xs font-semibold text-gray-600 sm:text-sm xl:text-2xl">
+            Upload me!
+          </p>
+        </p>
+        <input type="file" hidden ref={fileRef} onChange={addImageToPost} />
+    
+      </div>
 
                                 {/* CATEGORY */}
                              
-    <div className="text-xl flex border">
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
+    <div className="text-xl flex">
+      <FormControl sx={{ m:1, minWidth: 120 }}>
         <InputLabel htmlFor="grouped-select">Category</InputLabel>
         <Select
          defaultValue="" 
@@ -177,7 +184,7 @@ function Input() {
     </div>
       </div>
       </div>
-                <div className="mt-2">  {/* IF ADMIN IS NOT LOGGED IN YOU CANT POST ITEMS!! */}
+                <div className="mt-2"> 
                   <Button  variant="contained" type="submit"endIcon={<SendIcon />}>Send</Button>
                 </div>
            </form>

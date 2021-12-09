@@ -2,10 +2,9 @@ import React from 'react'
 import Button from '@mui/material/Button';
 
 //mui
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Input from '@mui/material/Input';
-
-
+import HttpsIcon from '@mui/icons-material/Https';
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -33,7 +32,7 @@ const Login = (props) => {
       
         <selection>
      
-            <label>User name:</label>
+            <p className='p-3 '><AccountCircleIcon sx={{ fontSize: 30 }}/>User name:
         
             <Input 
             className=" h-10 ml-2 text-xl"
@@ -45,11 +44,11 @@ const Login = (props) => {
             onChange={(e) => setEmail(e.target.value)} 
             inputProps={ariaLabel} 
 
-            />
+            /></p>
             <p className="bg-red-500 mt-2">{emailError}</p>
            
            
-            <label className="text-2xl p-2 ">Password: </label>
+            <label className="text-2xl p-2 "><HttpsIcon sx={{ fontSize: 30 }}/>Password: </label>
             <Input
             className="bg-white-100 ml-2 h-10 mt-10 text-2xl mb-10"
             placeholder="Password"
