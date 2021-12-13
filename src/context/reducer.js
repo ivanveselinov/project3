@@ -2,14 +2,14 @@ export const initialState = {
     appUser: {},
     selectedCategory: "",
     lections: [],
-    admin: "gtDSj709LTbt4laOXeRE4hXBnP72",
-    teachers: "CdfLq3LYMaTLcpKXLjhxV4bLDv03",
+    admin: "Nfv6sifFEkcXAyfjoueuYT4BfdG3",
+    teachers: "OCFkFWefwRY0vyfPYc851clqac13",
 
 };
 
 export const reducer = ( state, action ) => {
     switch(action.type) {
-        
+
         case "user":
             return {
                 ...state,
@@ -30,20 +30,20 @@ export const reducer = ( state, action ) => {
                   selectedCategory: action.payload,
                   filteredLections: newFilteredProducts,
                 };
-        
+
                 case "ADD_PRODUCTS":
                  return {
                    ...state,
                    lections: action.payload,
       };
 
-                 case "admin": 
+                 case "admin":
                   return {
                     ...state,
                      admin: action.payload,
                        };
 
-                  case "teacher": 
+                  case "teacher":
                     return {
                       ...state,
                       teachers: action.payload,
@@ -52,7 +52,6 @@ export const reducer = ( state, action ) => {
 
             default:
                 return;
-            
+
     }
 };
-

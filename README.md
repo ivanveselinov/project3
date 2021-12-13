@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Project 3
+## MLS- Multimedia Learning System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is made for **learning purposes**.
+ This project outlines the full-stack knowledge learnt during these past 12 weeks of the GA classes. This Online teaching platform is created to help students and teachers **to deploy and download materials** covered with subject filter and includes an online realtime chat application to help them to communicate better with their students using social media features.
 
-## Available Scripts
+ ## Login
+ For login we have 3 different types of users:
+ - **Students** - When you Sign up you are student by default. Students can only read, download and use messenger to communicate.
+ Login with my account studentone@ga.com password: chicken12345 or sign up by your self.
+ - **Teachers** - Teachers can create their own content and remove content from their Profile. They can also use messenger to communicate with other teachers or students. Login: teacher@ga.com password: chicken12345
+ - **Admins** - Admins can create and delete everything that is on the page, and they can add and remove teachers and students. They also have access to the messenger app. Login: admin@ga.com password: chicken12345
 
-In the project directory, you can run:
+![image](https://firebasestorage.googleapis.com/v0/b/mlsystem.appspot.com/o/Screen%20Shot%202021-12-13%20at%204.28.53%20pm.png?alt=media&token=f816596e-1d26-44ae-848d-37407c33dad0)
 
-### `npm start`
+## Login and Sign Up Page <bR>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![image](https://firebasestorage.googleapis.com/v0/b/mlsystem.appspot.com/o/Screen%20Shot%202021-12-13%20at%203.22.53%20pm.png?alt=media&token=0bd10708-ee91-4937-8afb-2ee0f8404b24)
 
-### `npm test`
+## When Teacher/ Browser is logged in:  <bR>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-![inside](https://firebasestorage.googleapis.com/v0/b/mlsystem.appspot.com/o/Screen%20Shot%202021-12-13%20at%203.07.29%20pm.png?alt=media&token=1a5afdc4-4b60-4d4a-8dad-ce1e2d9bb645)
 
-### `npm run build`
+## When Student/ Browser is logged in:  <bR>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-![inside](https://firebasestorage.googleapis.com/v0/b/mlsystem.appspot.com/o/Screen%20Shot%202021-12-13%20at%203.28.25%20pm.png?alt=media&token=84a31eb0-ff48-4796-b29a-b723824b576c)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Sign in view via Mobile Device:  <bR>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+![mobile](https://firebasestorage.googleapis.com/v0/b/mlsystem.appspot.com/o/Screen%20Shot%202021-12-13%20at%203.26.47%20pm.png?alt=media&token=9a29c874-c3a2-4975-9be7-326053a45614)
+## Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For this project we used the following Technologies :
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **React**
+* **Tailwind**
+* **Google Firebase Database**
+* **Google Firebase Authentication**
+* **NoSql**
+* **MUI Components**
+* **Deployed via Vercel**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Launch
 
-## Learn More
+This Web Application is working on :
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **Mozila Firefox**
+* **Google Chrome**
+* **Safari**
+* **All Mobile and Tablet devices**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Its also responsive to every other device so you can freely run
+starting from screen that supports **200px** resolution till **Max**.
 
-### Code Splitting
+Officially launched on **10.12.2021**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+You can access the Web Application by pressing
+this **link** : **[MLS](https://mls-seven.vercel.app/)**
 
-### Analyzing the Bundle Size
+## Future improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Create Comment Field and make it work**
+- **Create Like Field and make it work**
 
-### Making a Progressive Web App
+## Acknowledgments
+Special thanks to the **teachers and mentors** for the support and knowledge :)
+* **Joel**
+* **Pat**
+* **Rowena**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Collaboration  Contributor
+### Made and Contributed by: <br>
+* **[Ivan Veselinov](https://github.com/ivanveselinov)** <br>

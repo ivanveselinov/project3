@@ -23,7 +23,7 @@ function App() {
 
   return (
 
-    <div className="bg-Login-lg bg-center h-screen ">
+    <div className="bg-Login-lg bg-center">
       { user? <MainContainer /> : < Main/> }
   </div>
   );

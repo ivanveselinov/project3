@@ -31,7 +31,7 @@ function Header() {
           {appUser.uid &&
             <div className="flex p-2 " onClick={signOutThing}>
                 <a href="">
-            <p className=" sm:text-l lg:text-2xl">Logout<LogoutIcon sx ={{ fontSize: 30 }}/></p>   
+            <p className="sm:text-l lg:text-2xl">Logout<LogoutIcon sx ={{ fontSize: 30 }}/></p>   
                 </a>
             </div>
                 }
