@@ -27,7 +27,7 @@ function Input() {
   const removeImage = () => {
     setPostImage(null);
   };
-
+  
   //Handle image uploading !!
   const addImageToPost = (e) => {
     const reader = new FileReader();

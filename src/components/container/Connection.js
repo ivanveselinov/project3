@@ -24,6 +24,9 @@ export const Connection = () => {
             // console.error("Error removing document: ", error);
         });
     }
+
+
+
    
 
     // // everysingle time the new post is added this code fire
@@ -44,7 +47,7 @@ export const Connection = () => {
         realtimeLectures?.docs.map((lecture) => {
           console.log('i am realTime lecures',realtimeLectures)
           myLections.push({
-            id: lecture.id,
+            id: lecture.id,    
             title: lecture.data().title,
             description: lecture.data().description,
             postImage: lecture.data().postImage,
@@ -73,11 +76,13 @@ export const Connection = () => {
             ) => (
               <ReadDB
               key={lecture.id}
+              lectionId={lecture.id} //comments
               lecture={lecture}
               title={lecture.title}
               description={lecture.description}
               category={lecture.category}
               timestamp={lecture.timestamp}
+              createAt={lecture.timestamp}
               user={lecture.user}
               postImage={lecture.postImage}
               handleDelete={handleDelete}
@@ -91,11 +96,13 @@ export const Connection = () => {
             ) => (
               <ReadDB
               key={lecture.id}
+              lectionId={lecture.id} //comments
               lecture={lecture}
               title={lecture.title}
               description={lecture.description}
               category={lecture.category}
               timestamp={lecture.timestamp}
+              createAt={lecture.timestamp}
               user={lecture.user}
               postImage={lecture.postImage}
               handleDelete={handleDelete}
