@@ -48,8 +48,11 @@ function RightSideBar() {
        
              </div>
            )}
-         
-             <SendMessage />
+
+          <div className='mb-5'>
+            <SendMessage />
+          </div>
+          
              </ReactScrollableFeed>
     </div>
     
