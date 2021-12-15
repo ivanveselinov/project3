@@ -57,6 +57,7 @@ function Input() {
         .add({
             user: appUser?.email,
             userid: appUser.uid,
+            likes: 0,
             title: titleRef.current.value,
             description: descriptionRef.current.value,
             category: category, 

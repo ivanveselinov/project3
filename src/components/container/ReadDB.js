@@ -3,6 +3,8 @@ import { useContextProvider } from '../../context/StateProvider'
 import { db } from '../../firebase/Firebase'
 import firebase from 'firebase'
 //mui
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import Avatar from '@mui/material/Avatar';
 //scroll auto
@@ -11,10 +13,18 @@ import ReactScrollableFeed from 'react-scrollable-feed'
 // connect db from container and read from database!!! simple code
 export default function ReadDB({title, description,lectionId, timestamp, createAt, user, handleDelete, lecture, postImage, category}) {
     
-    const [{appUser, teachers, admin }, dispatch] = useContextProvider();
+    const [{appUser, userLikes, admin }, dispatch] = useContextProvider();
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState('');
-    
+    const [likes, setLikes] = useState([])
+    const [likesCount, setLikesCount] = useState(0);
+    const [liked, setLiked] = useState(false);
+
+    console.log('liked and setLiked',liked, setLiked)
+            /// COMMENTS LOGIC !!! ////
+
+
+                        /// Read Comments //
     useEffect(() => {
         let unsubscribe;
          if (lectionId) {
@@ -38,19 +48,86 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
         };
     }, [lectionId]);
 
-    
-    const postComment = (e) => {
-        e.preventDefault();
-        console.log('i am working')
 
-        db.collection("lection").doc(lectionId).collection("comments").add({
-            text: comment,
-            username: appUser.email,
-            id: appUser.uid,
-            createAt: firebase.firestore.FieldValue.serverTimestamp()
+
+                 
+                // POST COMMENT
+                const postComment = (e) => {
+                    e.preventDefault();
+                    console.log('i am working')
+            
+                    db.collection("lection").doc(lectionId).collection("comments").add({
+                        text: comment,
+                        username: appUser.email,
+                        id: appUser.uid,
+                        createAt: firebase.firestore.FieldValue.serverTimestamp()
+                    })
+                    setComment('');
+                }     
+
+
+
+                   // LIKES LOGIC ///
+
+
+//                    // READ Likes //
+   useEffect(() => {
+        let subscribe;
+         if (lectionId) {
+            // console.log('i am lection id',lectionId);
+            // console.log('i am Like ID', likes.id);
+            // console.log('i am LikeField', likes);
+            subscribe = db
+            .collection("lection") // database name!
+            .doc(lectionId) //database id
+            .collection("likes")//get inside likes 
+            .onSnapshot((snapshot) => { //get snapshot of likes
+                setLikes(snapshot.docs.map((doc) => doc.data()));
+                
+            });
+        }
+        
+        return () => {
+            subscribe();
+        };
+    }, [lectionId]);
+
+                    //  POST LIKES
+                     
+//  Function for handling likes status
+ useEffect(() => {
+    if (userLikes?.includes(lectionId)) {
+      setLiked(true);
+    }
+  }, [userLikes]);
+
+  console.log('User Likes',userLikes)
+
+  const likeHandler = () => {
+    if (!liked) {
+      db.collection("lection")   // get inside leciton
+        .doc(lectionId)               // get inside lection id
+        .collection("likes")        //get inside likes
+        .doc(appUser?.uid)          // create like just with user id
+        .set({
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
-        setComment('');
-    }     
+        .then(setLikesCount((prevCount) => prevCount + 1)) //to make the like count faster and not waiting for data base to return the increment or decrement
+        .then(setLiked(true));
+    } else {
+        db.collection("lection")    // get inside leciton
+        .doc(lectionId)             // get inside lection id
+        .collection("likes")        //get inside likes
+        .doc(appUser?.uid)          // see is there like with that user  id
+        .delete()                   // delete that like!!!
+        .then(setLikesCount((prevCount) => prevCount - 1)) //to make the like count faster and not waiting for data base to return the increment or decrement
+        .then(setLiked(false));
+    }
+  };
+//   <button className="bg-blue-300 rounded-md p-1 mt-2" onClick={() => likeHandler(lecture.id)}>Like</button>
+{/* <b>{like.username}</b> */}
+
+
     
     return (
         
@@ -73,11 +150,29 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
        </a>
     </div>
 
-                    {/*  COMMENTS!!!!!!!! */}
+                            {/* LIKES  */}
 
-    <div className=" w-full mt-2 p-1 shadow-xl">
-    
+    <div className="border w-full mt-2 p-1 shadow-xl">
+        <div className='mb-2'>
+
+            {
+                liked? (
+                    
+                    <FavoriteIcon onClick={likeHandler} style={{color: "red"}} sx={{fontSize: 30}} />
+                ) : (
+                    
+                    <FavoriteBorderIcon onClick={likeHandler} style={{fill: "green"}} sx={{fontSize: 30}}/>
+              
+                )}
+         {likes.length > 0 && ( 
+                   <p>{likes.length} likes</p>
+              )} 
+        </div>
+       
         <div className='border rounded-sm shadow-sm overflow-y-auto max-h-80'>
+      
+
+                               {/*  COMMENTS!!!!!!!! */}
         <ReactScrollableFeed>
          {comments.map((comment) => (  // map try each comment
             <p className='mt-2 p-2 border-b block break-words '>
@@ -89,7 +184,7 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
             ))}
                      </ReactScrollableFeed>      
         </div>  
-  
+        
          <form className="border-t w-full mt-10 p-1 justify-between flex">
         
             <input

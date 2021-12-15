@@ -4,6 +4,7 @@ export const initialState = {
     lections: [],
     admin: "Nfv6sifFEkcXAyfjoueuYT4BfdG3",
     teachers: "OCFkFWefwRY0vyfPYc851clqac13",
+    userLikes: [],
 
 };
 
@@ -48,6 +49,12 @@ export const reducer = ( state, action ) => {
                       ...state,
                       teachers: action.payload,
                        };
+
+                       case "USER_LIKES":
+                        return {
+                          ...state,
+                          userLikes: action.payload,
+                        };
 
 
             default:
