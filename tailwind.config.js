@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'Login-lg': "url('components/img/Login.jpeg')",
+        'logo': "url('components/img/MLS.gif')",
       },
     },
   },

@@ -93,9 +93,8 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
     }, [lectionId]);
 
                     //  POST LIKES
-                     
-//  Function for handling likes status
- useEffect(() => {
+
+  useEffect(() => {
     if (userLikes?.includes(lectionId)) {
       setLiked(true);
     }
@@ -124,11 +123,8 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
         .then(setLiked(false));
     }
   };
-//   <button className="bg-blue-300 rounded-md p-1 mt-2" onClick={() => likeHandler(lecture.id)}>Like</button>
-{/* <b>{like.username}</b> */}
 
 
-    
     return (
         
     <div className="sm: w-full sm: text-xs  lg:text-xl lg:w-3/4  m-auto border  mt-20 rounded-2xl p-2 bg-white shadow-xl"> 
@@ -156,8 +152,8 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
         <div className='mb-2'>
 
             {
-                liked? (
-                    
+                 liked? (
+        
                     <FavoriteIcon onClick={likeHandler} style={{color: "red"}} sx={{fontSize: 30}} />
                 ) : (
                     
@@ -169,14 +165,14 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
               )} 
         </div>
        
-        <div className='border rounded-sm shadow-sm overflow-y-auto max-h-80'>
+        <div className='border-2 rounded-sm shadow-sm overflow-y-auto max-h-80'>
       
 
                                {/*  COMMENTS!!!!!!!! */}
         <ReactScrollableFeed>
          {comments.map((comment) => (  // map try each comment
-            <p className='mt-2 p-2 border-b block break-words '>
-                <b className='mr-5 mb-1 w-full flex '><Avatar/> {comment.username}</b>
+            <p className='mt-2 p-2 border-b block break-words border ml-1 mr-1 mb-1'>
+                <b className='sm:block lg:flex mr-5 mb-1 w-full  '><Avatar/> {comment.username}</b>
                 <b>{new Date(createAt?.toDate()).toLocaleString()}</b>
                 <p className='mt-2 border-t'>{comment.text} </p>{/* show me comment and user who post it  */}
                 

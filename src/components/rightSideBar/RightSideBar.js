@@ -21,20 +21,20 @@ function RightSideBar() {
   }, [])
 
   return (
-    <div className="sm: w-1/2 lg:w-1/4 inline-block shadow-2xl  bg-white p-2  ">
-         <div className='sm:w-1/2 lg:w-full border rounded-xl shadow-xl p-2 h-30 overflow-scroll scrollbar-hide h-278 bg-gray-100 mt-10 m-auto'>
+    <div className="sm: w-1/2 lg:w-1/4 inline-block shadow-2xl lg:bg-white p-2  ">
+         <div className='sm: w-full lg:w-full border rounded-xl shadow-xl p-2 h-30 overflow-scroll scrollbar-hide h-278 bg-gray-100 mt-10 m-auto'>
         <ReactScrollableFeed>
        {messages.map(({id, uid, text, createAt, email}) =>
             <div key={id}>
             
-              <div className=" flex items-center space-x-2 border-t ">
+              <div className=" border sm:block  break-words lg:flex items-center space-x-2 border-t ">
               <div className='' >
               <Avatar img alt=""/>
               </div>
-              <div className="p-1 ">
+              <div className="p-1">
               <div className="">
               <div className=''>
-              <p className='sm: flex text-xs lg:text-xl '>{email}</p>
+              <p className='sm: text-xs lg:text-xl '>{email}</p>
               <p className='sm: text-xs lg:text-xl'>{new Date(createAt?.toDate()).toLocaleString()}</p>
               </div>
               </div>
