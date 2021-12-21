@@ -47,10 +47,8 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
             unsubscribe();
         };
     }, [lectionId]);
+   
 
-
-
-                 
                 // POST COMMENT
                 const postComment = (e) => {
                     e.preventDefault();
@@ -64,7 +62,6 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
                     })
                     setComment('');
                 }     
-
 
 
                    // LIKES LOGIC ///
@@ -102,10 +99,17 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
 
   console.log('User Likes',userLikes)
 
+
+    // useEffect(
+    //   () => setLiked (   likes.findIndex((like) => like.id === appUser.uid)  !== -1
+    //   ),[liked]
+    // )
+
+
   const likeHandler = () => {
     if (!liked) {
       db.collection("lection")   // get inside leciton
-        .doc(lectionId)               // get inside lection id
+        .doc(lectionId)             // get inside lection id
         .collection("likes")        //get inside likes
         .doc(appUser?.uid)          // create like just with user id
         .set({
@@ -124,26 +128,31 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
     }
   };
 
-
+  
     return (
         
-    <div className="sm: w-full sm: text-xs  lg:text-xl lg:w-3/4  m-auto border  mt-20 rounded-2xl p-2 bg-white shadow-xl"> 
+<div className="sm: w-full sm: text-xs  lg:text-xl lg:w-3/4  m-auto border  mt-20 rounded-2xl p-2 bg-white shadow-xl"> 
     <div className="text-center p-1 w-full ">
   
-         <p className="text-red-500 break-words">Teacher: {user} </p>
-    
-    <p>{new Date(timestamp?.toDate()).toLocaleString()}</p>
+          <p className="text-red-500 break-words">Teacher: {user} </p>
+          <p>{new Date(timestamp?.toDate()).toLocaleString()}</p>
+
     </div>
+
     <div className="border-t w-full mt-2 ">
+
        <p className='sm:text-xl lg:text-2xl text-center p-2  font-bold'>{title}</p>
        <p className="break-words border rounded-md p-5 shadow-sm">{description}</p>
+       
     </div>
 
     <div className="sm: text-sm lg:text-2xl mt-2 flex justify-between p-2  text-red-500">
+
         <p>Subject: {category} </p> 
         <a  href={postImage} target="_blank"> 
         <p ><FileDownloadIcon  sx ={{ fontSize: 40 }} /></p>
        </a>
+
     </div>
 
                             {/* LIKES  */}
@@ -152,7 +161,7 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
         <div className='mb-2'>
 
             {
-                 liked? (
+                liked? (
         
                     <FavoriteIcon onClick={likeHandler} style={{color: "red"}} sx={{fontSize: 30}} />
                 ) : (
@@ -162,10 +171,11 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
                 )}
          {likes.length > 0 && ( 
                    <p>{likes.length} likes</p>
+                 
               )} 
         </div>
        
-        <div className='border-2 rounded-sm shadow-sm overflow-y-auto max-h-80'>
+    <div className='border-2 rounded-sm shadow-sm overflow-y-auto max-h-80'>
       
 
                                {/*  COMMENTS!!!!!!!! */}
@@ -175,14 +185,13 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
                 <b className='sm:block lg:flex mr-5 mb-1 w-full  '><Avatar/> {comment.username}</b>
                 <b>{new Date(createAt?.toDate()).toLocaleString()}</b>
                 <p className='mt-2 border-t'>{comment.text} </p>{/* show me comment and user who post it  */}
-                
             </p>
             ))}
-                     </ReactScrollableFeed>      
-        </div>  
+        </ReactScrollableFeed>      
+    </div>  
         
-         <form className="border-t w-full mt-10 p-1 justify-between flex">
-        
+        <form className="border-t w-full mt-10 p-1 justify-between flex">
+    
             <input
              className='w-3/4 h-10 border rounded-xl  p-2 mr-1' 
              type="text" placeholder='Add a comment...' 
@@ -202,12 +211,11 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
             {/* I AM YOUR ID{appUser.uid} */}
 
                      {/* // ADMIN USER!!!!  */}
-       { appUser.uid === admin && 
-       <button className="bg-blue-300 rounded-md p-1 mt-2" onClick={() => handleDelete(lecture.id)}>Remove Class</button>
+            { appUser.uid === admin && 
+            <button className="bg-blue-300 rounded-md p-1 mt-2" onClick={() => handleDelete(lecture.id)}>Remove Class</button>
                       }  
+        </div>
 
-       </div>
-
-    </div>
+</div>
     )
 }

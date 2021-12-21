@@ -25,41 +25,45 @@ function CheckBoxList() {
     };
 
     return (
-        <div>
-                <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+  <div>
+    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
       {[0, 1, 2, 3].map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
-          <ListItem
+        <ListItem
             key={value}
             secondaryAction={
               <IconButton edge="end" aria-label="comments"></IconButton>
             }
             disablePadding
           >
-            <ListItemButton
+          
+          <ListItemButton
               role={undefined}
               onClick={handleToggle(value)}
               dense
-            >
-              <ListItemIcon>
-                <Checkbox
+          >
+              
+          <ListItemIcon>
+              <Checkbox
                   edge="start"
                   checked={checked.indexOf(value) !== -1}
                   tabIndex={-1}
                   disableRipple
                   inputProps={{ "aria-labelledby": labelId }}
-                />
-              </ListItemIcon>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-            </ListItemButton>
-          </ListItem>
+              />
+
+          </ListItemIcon>
+            <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+          </ListItemButton>
+          
+        </ListItem>
         );
       })}
     </List>
   );
-        </div>
+  </div>
     )
 }
 

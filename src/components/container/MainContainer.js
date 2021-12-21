@@ -15,8 +15,7 @@ function MainContainer() {
     return (
         // bg-gradient-to-r from-white via-blue-100 to-green-100
         <div className="bg-gradient-to-r from-white via-blue-100 to-green-100 " >
-           
-            
+        
             <Router>
                 <nav>
                 <Header />
@@ -28,21 +27,19 @@ function MainContainer() {
                 </nav>
             <Switch>  
      
-         
                     <Route exact path="/profile">
                         <Profile/>
                     </Route>
                    
-                    
-                    <Route expact path="/">
+                <Route expact path="/">
                     <div className="justify-between flex border ">
                         <LeftSideBar/>
-                          <InputDB />
-                          <RightSideBar/>
-                        </div>
-                    </Route>
+                        <InputDB />
+                        <RightSideBar/>
+                    </div>
+                </Route>
 
-                </Switch>
+            </Switch>
                
             </Router>
             

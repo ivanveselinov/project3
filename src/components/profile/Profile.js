@@ -26,38 +26,34 @@ function Profile({lecture}) {
         });
     }
                  // RENDER FILES FOR SPECIFIC USER!!
-        useEffect(() => {  // RealTime connection to database
-            const thisUserId = appUser.uid
-
-            if(thisUserId ) {
-                console.log("is statement is working",appUser)
+    useEffect(() => {  // RealTime connection to database
+         const thisUserId = appUser.uid
+        if(thisUserId ) {
+            console.log("is statement is working",appUser)
             db.collection("lection").where("userid", "==", thisUserId)
             .get()
                .then((querySnapshot) => {
                    let result=[]; 
-               
                    querySnapshot.forEach((doc) => {
-                    //    console.log('37-38', doc.id);
                     const newLecture = doc.data(); //passing id so we can remove user item
                     newLecture.id = doc.id;        //passing id so we can remove user item
-                         result.push(newLecture);
-             
-       });
-       setLection([...result])
-       console.log(result)
-   })
-   .catch((error) => {
-       console.log("Error getting documents: ", error);
+                    result.push(newLecture);   
+                 });
+            setLection([...result])
+            console.log(result)
+            })
+            .catch((error) => {
+             console.log("Error getting documents: ", error);
        
-   });
-}     // test.firestore.js
+            });
+        }     // test.firestore.js
            
-          }, [appUser])
+    }, [appUser])
 
-    return (
+return (
 
 <div className="w-full">
-        {lection.map(({userid, description , title, timestamp, user, id, postImage, category}) =>
+  {lection.map(({userid, description , title, timestamp, user, id, postImage, category}) =>
     <div className="sm: w-full sm: text-xs  lg:text-xl lg:w-3/4  m-auto border  mt-20 rounded-2xl p-2 bg-white shadow-xl"> 
         <div className="text-center p-1 w-full ">
              <p className="text-red-500 break-words">Teacher: {user} </p>
@@ -70,19 +66,17 @@ function Profile({lecture}) {
         </div>
 
         <div className="sm: text-sm lg:text-2xl mt-2 flex justify-between p-2  text-red-500">
-                <p>Subject: {category} </p> 
+            <p>Subject: {category} </p> 
             <a  href={postImage} target="_blank"> 
-                <p ><FileDownloadIcon  sx ={{ fontSize: 40 }} /></p>
-            </a>
-       <button className="bg-blue-300 rounded-md p-1 mb-2" onClick={() => handleDelete(id)}>Remove Post</button>
+            <p ><FileDownloadIcon  sx ={{ fontSize: 40 }} /></p></a>
+            <button className="bg-blue-300 rounded-md p-1 mb-2" onClick={() => handleDelete(id)}>Remove Post</button>
+        </div>
+        <div></div> 
     </div>
-    <div>
-    </div>
-</div>
-        )}
+  )}
       
-    </div>
-    )
+</div>
+)
 }
 
 export default Profile

@@ -11,6 +11,7 @@ function App() {
 
   const [user]= useAuthState(auth);
   const [{ appUser }, dispatch] = useContextProvider();
+  
   useEffect(() => {
     if (user) {
       // user own everything
@@ -25,7 +26,7 @@ function App() {
 
     <div className="bg-Login-lg bg-center">
       { user? <MainContainer /> : < Main/> }
-  </div>
+    </div>
   );
 }
 

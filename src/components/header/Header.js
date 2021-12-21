@@ -9,7 +9,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 function Header() {
     const [{ appUser } , dispatch] = useContextProvider(); //  Import all user information from database from reducer.js
-        // console.log('i am appuser', appUser)  
 
         const signOutThing = () => {
             firebase.auth().signOut();

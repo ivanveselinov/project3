@@ -25,14 +25,9 @@ const Login = (props) => {
 
     return (
 
-     
-    
-       
-        
-      
         <selection>
      
-            <p className='p-3 '><AccountCircleIcon sx={{ fontSize: 30 }}/>User name:
+          <p className='p-3 '><AccountCircleIcon sx={{ fontSize: 30 }}/>User name:
         
             <Input 
             className=" h-10 ml-2 text-xl"
@@ -44,11 +39,13 @@ const Login = (props) => {
             onChange={(e) => setEmail(e.target.value)} 
             inputProps={ariaLabel} 
 
-            /></p>
+            />
+          </p>
+          
             <p className="bg-red-500 mt-2">{emailError}</p>
            
-           
             <label className="text-2xl p-2 "><HttpsIcon sx={{ fontSize: 30 }}/>Password: </label>
+           
             <Input
             className="bg-white-100 ml-2 h-10 mt-10 text-2xl mb-10"
             placeholder="Password"
@@ -58,11 +55,12 @@ const Login = (props) => {
             onChange={(e) => setPassword(e.target.value)} 
             inputProps={ariaLabel} 
             />
+
             <p className="bg-red bg-red-500 mt-2">{passwordError}</p>  
       
           
 
-           <div  className="text-center w-full mt-1 ">
+          <div  className="text-center w-full mt-1 ">
                {hasAccount ? (    // on click switch on sign in and sign up
                    <> 
                    <Button variant="outlined" onClick={handleSignup}>Sign Up</Button>
@@ -71,12 +69,12 @@ const Login = (props) => {
                  ) : ( 
                    <>
                  <Button variant="outlined" onClick={handleLogin}>Sign In</Button>
-                <p>Don't have an account ? <Button variant="outlined" onClick={() => setHasAccount(!hasAccount)}>Sign Up</Button></p>
+                 <p>Don't have an account ? <Button variant="outlined" onClick={() => setHasAccount(!hasAccount)}>Sign Up</Button></p>
                   </>
                )}
-           </div>
+            </div>
 
-         </selection>   
+        </selection>   
     )
 }
 

@@ -109,26 +109,25 @@ function Input() {
         <div className="sm:w-1/2  lg:w-1/2  h-screen overflow-y-auto scrollbar-hide"> {/* MAIN CONTAINER */}
             { (appUser.uid === admin || appUser.uid === teachers )  &&
            <div className="sm: w-full sm: text-xs border lg:text-xl lg:w-3/4 rounded-2xl p-2 mt-10 m-auto bg-white shadow-xl">
-           <form onSubmit={submitHandler}> 
-               <div className="sm: text-xs  lg:text-xl p-2">
-                </div>
+              <form onSubmit={submitHandler}> 
+                <div className="sm: text-xs  lg:text-xl p-2">
+            </div>
                
-               <div className="p-2 w-full "> {/* Title Description */}
+              <div className="p-2 w-full "> {/* Title Description */}
                  
                   <div className="sm: text-xs lg:text-xl p-2 flex">
                   <div className="w-1/4"> {/* Just for labels */}
                   <div className="mt-3"><label >Title: </label></div>
                   <div className="mt-3"><label>Description: </label></div>
                
-                
-                   </div>
-               <div className="sm: text-xs lg:text-xl p-2">  {/* Input Fields title description */}
-                     <input type="text" className="rounded-xl bg-gray-200 p-1 w-full mb-2" name="title" ref={titleRef}></input>
+              </div>
+              <div className="sm: text-xs lg:text-xl p-2">  {/* Input Fields title description */}
+                    <input type="text" className="rounded-xl bg-gray-200 p-1 w-full mb-2" name="title" ref={titleRef}></input>
                     <input type="text" className="rounded-xl p-1 bg-gray-200 w-full" name="description" ref={descriptionRef}></input>
                     </div>
                </div>
           
-               <div>
+        <div>
                {postImage && (
             <div
               onClick={removeImage}
@@ -146,18 +145,19 @@ function Input() {
 
         <div className="sm:w-full text-xs lg:text-xl mt-2 p-4 flex border-t justify-between">  {/* Main for Photo and Category */}
           {/* Photo button */}
-               <div
+        <div
             className="inputBtn rounded-bl-lg flex justify-center  mt-3 w-1/5 "
             onClick={() => fileRef.current.click()}
-          >  <p className="flex space-x-2">
-          <UploadFileIcon  sx ={{ fontSize: 40 }} />{" "}
-          <p className=" hidden sm:inline-flex text-xs font-semibold text-gray-600 sm:text-sm xl:text-2xl">
-            Upload me!
+            >  
+          <p className="flex space-x-2">
+              <UploadFileIcon  sx ={{ fontSize: 40 }} />{" "}
+              <p className=" hidden sm:inline-flex text-xs font-semibold text-gray-600 sm:text-sm xl:text-2xl">
+              Upload me!
+            </p>
           </p>
-        </p>
         <input type="file" hidden ref={fileRef} onChange={addImageToPost} />
     
-      </div>
+        </div>
 
                                 {/* CATEGORY */}
                              

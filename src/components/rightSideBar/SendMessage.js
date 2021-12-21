@@ -20,17 +20,12 @@ function SendMessage() {
             createAt: firebase.firestore.FieldValue.serverTimestamp()
         })
             setMsg("");
-      
     }
 
-   
-
-   
-
     return (
-        <div>
-           <form onSubmit={sendMessage} > 
-                <div className="flex space-x-2 justify-between " >
+      <div>
+        <form onSubmit={sendMessage} > 
+            <div className="flex space-x-2 justify-between " >
                 
                 <input 
                  className="form-textarea mt-1 block w-full border  rounded-full p-2"
@@ -41,15 +36,13 @@ function SendMessage() {
                  placeholder="Message..."
                 /> 
              
-                 <button className="bg-transparent hidden hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded " >
-                Send<SendIcon/>
+                <button className="bg-transparent hidden hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded " >
+                    Send<SendIcon/>
                 </button>
-                </div>
+            </div>
               
-            
-
-            </form>
-        </div>
+        </form>
+      </div>
     )
 }
 

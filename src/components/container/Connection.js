@@ -25,23 +25,6 @@ export const Connection = () => {
         });
     }
 
-
-
-   
-
-    // // everysingle time the new post is added this code fire
-    // useEffect(() => {  // RealTime connection to database
-    //     db.collection('lection').orderBy('timestamp', "desc").limit(150).onSnapshot(snapshot =>{
-    //         setLection(snapshot.docs.map(doc =>({
-    //             id: doc.id ,
-    //             data: doc.data()
-    //         })))
-    //         // console.log('I am reading from db',snapshot.docs)
-    //     })
-       
-       
-    //   }, [])
-
       useEffect(() => {
         const myLections = [];
         realtimeLectures?.docs.map((lecture) => {
@@ -114,23 +97,3 @@ export const Connection = () => {
 
 }
   
-
-
-// {/* <div>
-// {/* Lecture read from database! */}
-// {lection.map((post) => (
-// <ReadDB
-// key={post.id}
-// lecture={post}
-// title={post.data.title}
-// description={post.data.description}
-// category={post.data.category}
-// timestamp={post.data.timestamp}
-// user={post.data.user}
-// postImage={post.data.postImage}
-// handleDelete={handleDelete}
-//  />
-
-// ))}
-
-// </div> */}

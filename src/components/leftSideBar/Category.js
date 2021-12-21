@@ -14,17 +14,19 @@ function Category(props) {
         };
 
     return (
-        <div className={`flex justify-between items-center cursor-pointer mb-2 ${
+    <div className={`flex justify-between items-center cursor-pointer mb-2 ${
              
         selectedCategory === props.label && "bg-gray-200 p-2 "
       }`}
       onClick={clickToCategory}
-    >
-      <div className="border rounded-full">
-        {/* <Icon /> */}
-      </div>
-      <div>{props.label}</div>
+      >
+
+        <div className="border rounded-full">
+         {/* <Icon /> */}
         </div>
+
+        <div>{props.label}</div>
+    </div>
     )
 }
 

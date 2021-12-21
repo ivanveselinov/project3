@@ -81,8 +81,6 @@ function Main() {
   }, [user])
 
 
-
-
     return ( 
     <div className="w-fulltext-center m-auto text-2xl p-40 " >
       <p className="sm:text-2xl sm:font-bold mb-3 text-pink-600 font-bold lg:text-6xl underline text-center">Welcome to MLS </p>
