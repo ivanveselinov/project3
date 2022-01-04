@@ -66,7 +66,6 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
 
                    // LIKES LOGIC ///
 
-
 //                    // READ Likes //
    useEffect(() => {
         let subscribe;
@@ -78,9 +77,12 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
             .collection("lection") // database name!
             .doc(lectionId) //database id
             .collection("likes")//get inside likes 
-            .onSnapshot((snapshot) => { //get snapshot of likes
-                setLikes(snapshot.docs.map((doc) => doc.data()));
-                
+            .onSnapshot((querySnapshot) => {
+                let documents = [];
+                querySnapshot.forEach((doc) => {
+                    documents.push(doc.data());
+                });
+                setLikes(documents)
             });
         }
         
@@ -89,23 +91,14 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
         };
     }, [lectionId]);
 
-                    //  POST LIKES
+                  //SHOW LIKES
 
   useEffect(() => {
-    if (userLikes?.includes(lectionId)) {
-      setLiked(true);
-    }
-  }, [userLikes]);
-
-  console.log('User Likes',userLikes)
+    setLiked ( likes.findIndex((like) => like.id === appUser.uid)  !== -1 )
+  }, [likes])
 
 
-    // useEffect(
-    //   () => setLiked (   likes.findIndex((like) => like.id === appUser.uid)  !== -1
-    //   ),[liked]
-    // )
-
-
+                //  POST LIKES
   const likeHandler = () => {
     if (!liked) {
       db.collection("lection")   // get inside leciton
@@ -114,6 +107,7 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
         .doc(appUser?.uid)          // create like just with user id
         .set({
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          id: appUser?.uid 
         })
         .then(setLikesCount((prevCount) => prevCount + 1)) //to make the like count faster and not waiting for data base to return the increment or decrement
         .then(setLiked(true));
@@ -128,6 +122,7 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
     }
   };
 
+  
   
     return (
         
