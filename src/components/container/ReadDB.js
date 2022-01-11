@@ -123,7 +123,6 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
   };
 
   
-  
     return (
         
 <div className="sm: w-full sm: text-xs  lg:text-xl lg:w-3/4  m-auto border  mt-20 rounded-2xl p-2 bg-white shadow-xl"> 
@@ -170,10 +169,10 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
               )} 
         </div>
        
+                              {/*  COMMENTS!!!!!!!! */}
+                                        {/* READ  */}
     <div className='border-2 rounded-sm shadow-sm overflow-y-auto max-h-80'>
       
-
-                               {/*  COMMENTS!!!!!!!! */}
         <ReactScrollableFeed>
          {comments.map((comment) => (  // map try each comment
             <p className='mt-2 p-2 border-b block break-words border ml-1 mr-1 mb-1'>
@@ -183,8 +182,9 @@ export default function ReadDB({title, description,lectionId, timestamp, createA
             </p>
             ))}
         </ReactScrollableFeed>      
+
     </div>  
-        
+                                {/* Input */}
         <form className="border-t w-full mt-10 p-1 justify-between flex">
     
             <input

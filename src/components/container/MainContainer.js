@@ -13,7 +13,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 function MainContainer() {
     const [{appUser,admin, teachers}, dispatch] = useContextProvider();
     return (
-        // bg-gradient-to-r from-white via-blue-100 to-green-100
+
         <div className="bg-gradient-to-r from-white via-blue-100 to-green-100 " >
         
             <Router>
@@ -25,21 +25,22 @@ function MainContainer() {
                       <a className="hover:underline text-2xl float-right mr-3 text-red-500" href="/profile"><AccountCircleIcon sx={{fontSize: 30}}/>Profile</a>
                     }     
                 </nav>
-            <Switch>  
+                
+                <Switch>  
      
                     <Route exact path="/profile">
                         <Profile/>
                     </Route>
                    
-                <Route expact path="/">
-                    <div className="justify-between flex border ">
-                        <LeftSideBar/>
-                        <InputDB />
-                        <RightSideBar/>
-                    </div>
-                </Route>
+                    <Route expact path="/">
+                        <div className="justify-between flex border ">
+                          <LeftSideBar/>
+                          <InputDB />
+                          <RightSideBar/>
+                        </div>
+                    </Route>
 
-            </Switch>
+                </Switch>
                
             </Router>
             
