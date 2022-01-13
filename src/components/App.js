@@ -24,7 +24,7 @@ function App() {
 
   return (
 
-    <div className="bg-Login-lg bg-center">
+    <div className="w-full h-screen bg-Login-lg bg-center">
       { user? <MainContainer /> : < Main/> }
     </div>
   );
