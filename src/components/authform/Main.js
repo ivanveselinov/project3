@@ -65,26 +65,20 @@ function Main() {
     fire.auth().signOut();
   }
 
-////////////////////////////////////////////////////////
+  const authListener = () => {    // if user exist !
+    fire.auth().onAuthStateChanged(user => {
+      if (user){
+        clearInputs();
+        // setUser(user);
+      }else {
+        setUser("");
+      }
+    })
+  }
+  useEffect(() => {
+    authListener();
+  }, [user])
 
-  //TO DOUBLE CHECK THIS CODE !!! SOME BUG IS IN IT!!
-
-  // const authListener = () => {    // if user exist !
-  //   fire.auth().onAuthStateChanged(user => {
-  //     if (user){
-  //       clearInputs();
-  //       setUser(user);
-  //     }else {
-  //       setUser("");
-  //     }
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   authListener();
-  // }, [user])
-
-////////////////////////////////////////////////////////
     return ( 
     <div className="sm:w-full lg:w-full text-center m-auto text-2xl p-40 " >
       <p className="sm:text-2xl sm:font-bold mb-3 text-pink-600 font-bold lg:text-6xl underline text-center">Welcome to MLS </p>
