@@ -12,7 +12,7 @@ function RightSideBar() {
   useEffect(() => {  // .limit(150) i put unlimited messages
     db.collection('messages').orderBy('createAt').onSnapshot(snapshot =>{
       const messages=snapshot.docs.map(doc => doc.data())
-        setMessages(snapshot.docs.map(doc => doc.data()))
+      setMessages(snapshot.docs.map(doc => doc.data()))
         console.log(snapshot.docs)
          console.log("i am chat", messages)
     })
